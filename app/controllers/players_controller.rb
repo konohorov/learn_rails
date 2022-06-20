@@ -1,6 +1,8 @@
 class PlayersController < ApplicationController
+
+    before_action :set_player, only: [:show, :edit, :update, :destroy]
+
     def show
-        @player = Player.find(params[:id])
     end
 
     def index
@@ -12,7 +14,6 @@ class PlayersController < ApplicationController
     end
 
     def edit
-        @player = Player.find(params[:id])
     end
 
     def create
@@ -27,7 +28,6 @@ class PlayersController < ApplicationController
     end
 
     def update
-        @player = Player.find(params[:id])
         if @player.update(player_params)
             flash[:notice] = 'Player updated'
             redirect_to(@player)
@@ -37,12 +37,15 @@ class PlayersController < ApplicationController
     end
 
     def destroy
-        @player = Player.find(params[:id])
         @player.destroy
         redirect_to(players_path)
     end
 
     private
+
+    def set_player
+        @player = Player.find(params[:id])
+    end
 
     def player_params
         params.require(:player).permit(
