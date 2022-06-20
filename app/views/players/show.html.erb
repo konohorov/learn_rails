@@ -3,3 +3,7 @@
 <p><strong>Nickname: </strong><%= @player.nickname %></p>
 <p>First name: <%= @player.first_name %></p>
 <p>Last name: <%= @player.last_name %></p>
+
+<%= link_to 'Edit', edit_player_path(@player) %> |
+<%= link_to 'Delete', player_path(@player), method: :delete, data: { confirm: "Delete?" } %> |
+<%= link_to 'Back to players', players_path %>

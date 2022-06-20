@@ -1,4 +1,4 @@
-<h1>Create a new player</h1>
+<h1>Edit player</h1>
 
 <% if @player.errors.any? %>
     <h2>Fix the errors:</h2>
@@ -9,7 +9,7 @@
     </ul>
 <% end %>
 
-<%= form_with scope: :player, url: players_path, local: true do |f| %>
+<%= form_with(model: @player,  local: true) do |f| %>
     <p>
         <%= f.label :nickname %><br/>
         <%= f.text_field :nickname %>
