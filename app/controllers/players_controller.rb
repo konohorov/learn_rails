@@ -23,7 +23,7 @@ class PlayersController < ApplicationController
             flash[:notice] = 'Player created'
             redirect_to(@player)
         else
-            render :new
+            render :new, status: :unprocessable_entity
         end
     end
 
@@ -32,7 +32,7 @@ class PlayersController < ApplicationController
             flash[:notice] = 'Player updated'
             redirect_to(@player)
         else
-            render :edit
+            render :edit, status: :unprocessable_entity
         end
     end
 
