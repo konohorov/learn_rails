@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_06_19_101836) do
+ActiveRecord::Schema[7.0].define(version: 2022_06_23_190943) do
   create_table "players", force: :cascade do |t|
     t.string "nickname"
     t.string "first_name"
@@ -18,6 +18,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_19_101836) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
+  end
+
+  create_table "teams", force: :cascade do |t|
+    t.string "name"
+    t.string "slug"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

@@ -1,0 +1,28 @@
+<%= form_with(model: @team, local: true) do |f| %>
+
+<div class="">
+  <% if @team.errors.any? %>
+      <h3>Fix the errors:</h3>
+      <ul>
+          <% @team.errors.full_messages.each do |msg| %>
+              <li><%= msg %></li>
+          <% end %>
+      </ul>
+   <% end %>
+</div>
+
+<div class="">
+  <p>
+      <%= f.label :name %><br/>
+      <%= f.text_field :name %>
+  </p>
+  <p>
+      <%= f.label :slug %><br/>
+      <%= f.text_field :slug %>
+  </p>
+  <p>
+      <%= f.submit %>
+  </p>
+</div>
+
+<% end %>
