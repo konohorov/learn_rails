@@ -2,34 +2,38 @@
 
 <div class="">
   <% if @player.errors.any? %>
-      <h3>Fix the errors:</h3>
+    <h3>Fix the errors:</h3>
       <ul>
-          <% @player.errors.full_messages.each do |msg| %>
-              <li><%= msg %></li>
-          <% end %>
+        <% @player.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
    <% end %>
 </div>
 
 <div class="">
   <p>
-      <%= f.label :nickname %><br/>
-      <%= f.text_field :nickname %>
+    <%= f.label :nickname %><br/>
+    <%= f.text_field :nickname %>
   </p>
   <p>
-      <%= f.label :first_name %><br/>
-      <%= f.text_field :first_name %>
+    <%= f.label :first_name %><br/>
+    <%= f.text_field :first_name %>
   </p>
   <p>
-      <%= f.label :last_name %><br/>
-      <%= f.text_field :last_name %>
+    <%= f.label :last_name %><br/>
+    <%= f.text_field :last_name %>
   </p>
   <p>
-      <%= f.label :slug %><br/>
-      <%= f.text_field :slug %>
+    <%= f.label :slug %><br/>
+    <%= f.text_field :slug %>
   </p>
   <p>
-      <%= f.submit %>
+    <%= f.label :team %><br/>
+    <%= f.collection_select :team_id, Team.order(:name), :id, :name, { include_blank: 'Select team' } %><br/>
+  </p>
+  <p>
+    <%= f.submit %>
   </p>
 </div>
 

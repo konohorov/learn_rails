@@ -7,6 +7,7 @@ class PlayersController < ApplicationController
 
     def index
         @players = Player.all
+        # byebug
     end
 
     def new
@@ -52,6 +53,7 @@ class PlayersController < ApplicationController
             :nickname,
             :first_name,
             :last_name,
-            :slug)
+            :slug,
+            :team_id)
     end
 end
